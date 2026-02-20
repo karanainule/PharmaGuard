@@ -152,8 +152,8 @@ Service health check and capabilities.
 }
 ```
 
+<!--
 ---
-
 ## Deployment
 
 ### Backend → Render
@@ -169,7 +169,7 @@ Service health check and capabilities.
 2. Set **Root Directory**: `frontend`
 3. Add environment variable: `VITE_API_URL=https://your-render-url.onrender.com`
 4. Deploy
-
+-->
 ---
 
 ## LLM Prompt Template
