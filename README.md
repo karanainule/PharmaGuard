@@ -5,7 +5,14 @@ AI-powered web application that predicts drug-gene interaction risks from patien
 
 ---
 ## Demo Video 
+https://github.com/user-attachments/assets/c5d9b042-4456-479b-b953-99e62a9249b0
+
+
+## LinkedIn Post 
 https://www.linkedin.com/posts/shrushti-pandilwar_rift2026-pharmaguard-pharmacogenomics-ugcPost-7430429000075726848-B6gE?utm_source=share&utm_medium=member_android&rcm=ACoAAEPt60oBZ0qrHwiPpwgZ3IdaFD-g4pKaWFQ
+
+## Live Site
+https://pharma-guard-owc2vsdzq-karans-projects-e5b65c7e.vercel.app/
 ## Quick Start
 
 ### Prerequisites
@@ -15,9 +22,10 @@ https://www.linkedin.com/posts/shrushti-pandilwar_rift2026-pharmaguard-pharmacog
 
 ---
 ## Architecture Overview
-
+<img width="1791" height="998" alt="Screenshot 2026-02-20 060137" src="https://github.com/user-attachments/assets/f9f761b5-0aa4-41c7-9152-7208d290f3f8" />
 
 ## Backend Setup
+
 
 ```bash
 cd backend
@@ -236,6 +244,4 @@ pharmaguard/
 ## Disclaimer
 
 PharmaGuard is a clinical decision support tool for research and educational purposes. Results must be interpreted by qualified healthcare professionals. Not for standalone clinical use.
-=======
-# PharmaGuard
->>>>>>> 5c2bdd133d57d500ec3648a6f9a723f101fc62b4
+
