@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+
 # PharmaGuard — Pharmacogenomic Risk Prediction System
 
 AI-powered web application that predicts drug-gene interaction risks from patient VCF files with LLM-generated clinical explanations.
 
 ---
-
+## Demo Video 
+https://www.linkedin.com/posts/shrushti-pandilwar_rift2026-pharmaguard-pharmacogenomics-ugcPost-7430429000075726848-B6gE?utm_source=share&utm_medium=member_android&rcm=ACoAAEPt60oBZ0qrHwiPpwgZ3IdaFD-g4pKaWFQ
 ## Quick Start
 
 ### Prerequisites
@@ -13,6 +14,8 @@ AI-powered web application that predicts drug-gene interaction risks from patien
 - OpenAI or Gemini API key (optional — fallback explanations work without one)
 
 ---
+## Architecture Overview
+
 
 ## Backend Setup
 
