@@ -83,7 +83,7 @@ export default function UploadPage({ setResults, loading, setLoading }) {
       const res = await axios.post(`${API_URL}/analyze`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
         onUploadProgress: (e) => {
-          setProgress(Math.round((e.loaded * 60) / e.total));
+          setProgress(Math.round((e.loaded * 100) / e.total));
         },
       });
       setProgress(100);
@@ -156,6 +156,15 @@ export default function UploadPage({ setResults, loading, setLoading }) {
           </div>
 
           <div
+            role="button"
+            tabIndex={0}
+            aria-label={file ? `Uploaded file ${file.name}` : "Upload VCF file"}
+            onKeyDown={(e) => {
+              if (!file && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                fileInputRef.current?.click();
+              }
+            }}
             onDragOver={(e) => {
               e.preventDefault();
               setDragOver(true);
@@ -163,7 +172,8 @@ export default function UploadPage({ setResults, loading, setLoading }) {
             onDragLeave={() => setDragOver(false)}
             onDrop={handleDrop}
             onClick={() => !file && fileInputRef.current?.click()}
-            className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-all cursor-pointer glow-border
+            aria-disabled={file ? "true" : "false"}
+            className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-all ${"cursor-pointer glow-border"}
               ${dragOver ? "border-bio-400 bg-bio-500/10" : "border-bio-900 hover:border-bio-700 bg-slate-900/50"}
               ${file ? "border-bio-600 bg-bio-500/5 cursor-default" : ""}`}
           >
@@ -224,10 +234,15 @@ export default function UploadPage({ setResults, loading, setLoading }) {
             )}
           </div>
 
+          <label className="sr-only" htmlFor="vcf-upload">
+            Upload VCF file
+          </label>
           <input
+            id="vcf-upload"
             ref={fileInputRef}
             type="file"
             accept=".vcf"
+            aria-label="Choose VCF file"
             onChange={(e) => handleFile(e.target.files[0])}
             className="hidden"
           />
@@ -274,6 +289,7 @@ export default function UploadPage({ setResults, loading, setLoading }) {
                 <button
                   key={drug}
                   onClick={() => toggleDrug(drug)}
+                  aria-pressed={selected}
                   className={`relative p-3 rounded-lg border text-left transition-all ${
                     selected
                       ? "bg-bio-500/15 border-bio-500/50 text-white"
@@ -319,7 +335,11 @@ export default function UploadPage({ setResults, loading, setLoading }) {
 
       {/* Error */}
       {error && (
-        <div className="max-w-4xl mx-auto mt-4 flex items-center gap-2 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm animate-fadeIn">
+        <div
+          role="alert"
+          aria-live="polite"
+          className="max-w-4xl mx-auto mt-4 flex items-center gap-2 px-4 py-3 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 text-sm animate-fadeIn"
+        >
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
           {error}
         </div>
@@ -330,6 +350,7 @@ export default function UploadPage({ setResults, loading, setLoading }) {
         <button
           onClick={handleSubmit}
           disabled={loading || !file || selectedDrugs.length === 0}
+          aria-disabled={loading || !file || selectedDrugs.length === 0}
           className="flex-1 flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-bio-500 hover:bg-bio-400 disabled:bg-bio-900 disabled:text-bio-800 text-white font-display font-semibold text-sm transition-all disabled:cursor-not-allowed"
         >
           {loading ? (
@@ -349,6 +370,7 @@ export default function UploadPage({ setResults, loading, setLoading }) {
         <button
           onClick={handleDemo}
           disabled={loading || selectedDrugs.length === 0}
+          aria-disabled={loading || selectedDrugs.length === 0}
           className="px-5 py-3.5 rounded-xl border border-bio-900 hover:border-bio-700 text-slate-400 hover:text-slate-300 font-display text-sm font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Demo Mode
@@ -379,7 +401,11 @@ export default function UploadPage({ setResults, loading, setLoading }) {
 
       {/* Centered loading overlay shown during API calls */}
       {loading && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+        >
           <div className="bg-slate-900/90 px-6 py-6 rounded-lg flex flex-col items-center gap-3">
             <Spinner size={56} ariaLabel="Analyzing genome" />
             <p className="text-white font-medium">
