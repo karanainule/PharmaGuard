@@ -1,8 +1,15 @@
-import { Activity, Shield } from 'lucide-react'
+import { Activity, Shield } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <header className="border-b border-bio-900/50 bg-slate-950/80 backdrop-blur-sm sticky top-0 z-50">
+    <header
+      className="border-b backdrop-blur-sm sticky top-0 z-50"
+      style={{
+        backgroundColor: "var(--header-bg)",
+        borderBottomColor: "var(--border-color)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
@@ -15,22 +22,37 @@ export default function Header() {
               </div>
             </div>
             <div>
-              <span className="font-display font-bold text-xl tracking-tight text-white">
+              <span
+                className="font-display font-bold text-xl tracking-tight"
+                style={{ color: "var(--header-text)" }}
+              >
                 Pharma<span className="text-bio-400">Guard</span>
               </span>
-              <div className="text-[10px] font-mono text-slate-500 uppercase tracking-widest -mt-1">
+              <div
+                className="text-[10px] font-mono uppercase tracking-widest -mt-1"
+                style={{ color: "var(--muted)" }}
+              >
                 Pharmacogenomic Risk System
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <Activity className="w-4 h-4 text-bio-500 animate-pulse" />
-            <span className="text-xs font-mono text-slate-400">SYSTEM ACTIVE</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-bio-400 ml-1 animate-pulse" />
+            <span
+              className="text-xs font-mono"
+              style={{ color: "var(--muted)" }}
+            >
+              SYSTEM ACTIVE
+            </span>
+            <div
+              className="w-1.5 h-1.5 rounded-full ml-1 animate-pulse"
+              style={{ backgroundColor: "var(--bio-400)" }}
+            />
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }
