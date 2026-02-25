@@ -11,12 +11,19 @@ https://github.com/user-attachments/assets/89c41bdb-918f-4d07-bfae-6c6d5a6d7cb1
 
 
 
-
+<!--
 ## LinkedIn Post 
 https://www.linkedin.com/posts/shrushti-pandilwar_rift2026-pharmaguard-pharmacogenomics-ugcPost-7430429000075726848-B6gE?utm_source=share&utm_medium=member_android&rcm=ACoAAEPt60oBZ0qrHwiPpwgZ3IdaFD-g4pKaWFQ
-
+-->
 ## Live Site
 https://pharma-guard-rho.vercel.app/
+
+## 📄 Problem Statement (RIFT Hackathon)
+
+This project was built for the **RIFT 2026 Hackathon – Pharmacogenomics Track**.
+
+👉 [View Official Problem Statement](https://github.com/user-attachments/files/25491002/RIFT-PS.pdf)
+
 ## Quick Start
 
 ### Prerequisites
